@@ -10,8 +10,8 @@ $(function(){
 	Banner.prototype.init = function() {
 		var _this = this;
 		$.each(this.data, function(index) {
-			_this.imgList.append("<li><a href=''></a></li>"); //tupian
-			_this.picNum.append("<li></li>"); //jiaobiao
+			_this.imgList.append("<li><a href=''></a></li>");
+			_this.picNum.append("<li></li>"); 
 		})
 		this.picNum.find("li:first").addClass("active");
 		this.imgList.find("a").each(function() {
@@ -74,6 +74,8 @@ $(function(){
 	}
 	new Banner("banner", data);
 		
+		
+		
 	$(".prev").hover(function(){	
 				$(".prev").css("background-position-x",-45);
 			},function(){
@@ -89,6 +91,35 @@ $(function(){
 	},function(){
 		$(".last_img").hide();
 	});
-		
-				
+	
+	
+	var num = 0;
+	
+	
+	
+	
+	
+	
+	
+	
+	/*var index=0;
+	function Move(){	
+		index++;
+		$(".content1_Img").find("ul").eq(index).animate({left:"-=1182px"},"linear",function(){
+		$(this).remove().clone(true).appendTo(".content1_Img").fadeIn("fast");
+	});	
+		$(".content1_Title").find("li").addClass(".active1").siblings().removeClass(".active1");
+		if(index==5){
+			index=0;
+		}	
+		console.log(index);
+	}
+	var timer1=setInterval(Move,2000);
+	
+	$(".content1_Img").hover(function(){
+		clearInterval(timer1);
+	},function(){
+		timer1=setInterval(Move,3000);
+	});*/
+	
 })

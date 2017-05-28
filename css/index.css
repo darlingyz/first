@@ -659,7 +659,7 @@ html,
  /*--content1--*/
 #content1{
 	height:884px;
-	background:greenyellow;
+	background:#fff;
 } 
 #content1 h2{
 	font-weight: 100;
@@ -667,30 +667,56 @@ html,
 	font-size:24px;
 	line-height: 130px;
 }
+
 .content1_Banner{
 	width:1182px;
 	height:754px;
 	margin:0 auto;	
+	position:relative;
+	overflow: hidden;
+}
+.content1_Nav{
+	width:1182px;
+	height:37px;
+	background:#F8A89C;
 }
 .content1_Title{
+	width:500px;
 	height:37px;
-	background: #F8A89C;
+	line-height: 37px;
+	margin:0 auto;
+}
+.content1_Title li{
+	display: block;
+	width:100px;
+	float:left;	
+	text-align: center;
 	
 }
+.content1_Title li{
+	color:#fff;
+	cursor: pointer;
+}
 .content1_Img{
-	display: flex;
 	height:696px;
 	background:#fff;
-	margin-top:20px;
+	margin-top:12px;
+	overflow: hidden;
 }
-.content1_Img li{
-	flex: 2;	
+.content1_Img ul{
+	display:flex;
 }
-.content1_Img li img:nth-of-type(2){
-	margin-top:12px;	
+.content1_Img ul li:first-child{
+	flex:2;
 }
-.content1_Img li:nth-of-type(2){
+.content1_Img ul li:last-child{
 	flex:1;
+}
+.content1_Img ul li img:nth-of-type(2){
+	margin:12px 10px 0 0;	
+}
+ .content1_Title li.active1{
+	color:#666;
 }
 
 
