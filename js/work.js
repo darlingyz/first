@@ -105,7 +105,7 @@ $(function(){
 	$(".content1_Title li").hover(function(){
 		clearInterval(timer1);
 		Num = $(this).index();
-		$(".content1_Img ul").eq(Num).fadeIn("fast").siblings().fadeOut("fast");
+		$(".content1_Img ul").eq(Num).show().siblings().hide();
 		$(".content1_Title li").eq(Num).addClass("active1").siblings().removeClass("active1");
 	},function(){
 		timer1=setInterval(Move,2000);
@@ -120,13 +120,15 @@ $(function(){
 		$(".content3_Pic").animate({left:"-=260px"},"slow");	
 	});
 	
-	$(".content4_pic li").hover(function(){
-	index=$(this).index();
+	$(".content4_pic li").mouseenter(function(){				
+		index=$(this).index();
 		$(".content4_pic li").eq(index).animate({opacity:"0.5"},100,function(){
-			$(".content4_pic li").eq(index).animate({opacity:"1"},100);
+		
+			$(".content4_pic li").eq(index).animate({opacity:"1"},100);			
 		});
-	},function(){
-		$(".content4_pic li").eq(index).animate({opacity:"1"},100);
+	});
+	$(".content4_pic li").mouseleave(function(){
+		$(".content4_pic li").animate({opacity:"1"},100);		
 	});
 	
 	
