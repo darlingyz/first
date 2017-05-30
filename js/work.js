@@ -92,34 +92,45 @@ $(function(){
 		$(".last_img").hide();
 	});
 	
-	
-	var num = 0;
-	
-	
-	
-	
-	
-	
-	
-	
-	/*var index=0;
+//banner自动轮播	
+	var Num = 0;
 	function Move(){	
-		index++;
-		$(".content1_Img").find("ul").eq(index).animate({left:"-=1182px"},"linear",function(){
-		$(this).remove().clone(true).appendTo(".content1_Img").fadeIn("fast");
-	});	
-		$(".content1_Title").find("li").addClass(".active1").siblings().removeClass(".active1");
-		if(index==5){
-			index=0;
-		}	
-		console.log(index);
+		Num++;
+		if(Num==5){Num=0;}
+		$(".content1_Img ul").eq(Num).fadeIn().siblings().fadeOut();
+		$(".content1_Title li").eq(Num).addClass("active1").siblings().removeClass("active1");
 	}
 	var timer1=setInterval(Move,2000);
-	
-	$(".content1_Img").hover(function(){
+//鼠标划过index,清除定时器，显示对应图片。滑出继续滚动。
+	$(".content1_Title li").hover(function(){
 		clearInterval(timer1);
+		Num = $(this).index();
+		$(".content1_Img ul").eq(Num).fadeIn("fast").siblings().fadeOut("fast");
+		$(".content1_Title li").eq(Num).addClass("active1").siblings().removeClass("active1");
 	},function(){
-		timer1=setInterval(Move,3000);
-	});*/
+		timer1=setInterval(Move,2000);
+	});
+	
+	
+	$(".content3_Top_pre").click(function(){
+		$(".content3_Pic").animate({left:"+=260px"},"slow");
+		
+	});
+	$(".content3_Top_next").click(function(){			
+		$(".content3_Pic").animate({left:"-=260px"},"slow");	
+	});
+	
+	$(".content4_pic li").hover(function(){
+	index=$(this).index();
+		$(".content4_pic li").eq(index).animate({opacity:"0.5"},100,function(){
+			$(".content4_pic li").eq(index).animate({opacity:"1"},100);
+		});
+	},function(){
+		$(".content4_pic li").eq(index).animate({opacity:"1"},100);
+	});
+	
+	
+	
+
 	
 })

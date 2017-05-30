@@ -50,7 +50,7 @@ html,
  	color: #333;
  	padding: 5px 0;
  	font: 12px/20px "SimSun", "宋体", "Arial Narrow", HELVETICA;
- 	background: #f0f0f0;
+ 	background: #fff;
  }
  a {
  	color: #666;
@@ -661,13 +661,12 @@ html,
 	height:884px;
 	background:#fff;
 } 
-#content1 h2{
+#content1 h2,.content3_Top h3{
 	font-weight: 100;
 	text-align: center;
 	font-size:24px;
 	line-height: 130px;
 }
-
 .content1_Banner{
 	width:1182px;
 	height:754px;
@@ -705,7 +704,9 @@ html,
 }
 .content1_Img ul{
 	display:flex;
+	position: absolute;
 }
+.content1_Img ul:first-child{z-index: 1;}
 .content1_Img ul li:first-child{
 	flex:2;
 }
@@ -719,28 +720,153 @@ html,
 	color:#666;
 }
 
-
-
-
-
-
-
-
- /*--content2--*/
-#content2{
-	height:254px;
-	background:green;
-} 
   /*--content3--*/  /*--小轮播-1440px--*/
 #content3{
 	height:498px;
-	background:yellow;
+	background:#fff;	
 } 
+.content3_Top{
+	width:1060px;
+	height:324px;
+	background:#fff;
+	overflow: hidden;
+	position: relative;
+	margin:0 auto;
+}
+.content3_Pic{
+	width:1990px;
+	height:193px;
+	margin:0 auto;
+	position: absolute;
+}
+.content3_Pic li{
+	float:left;
+	margin-left:20px;
+}
+.content3_Top_pre,.content3_Top_next{
+	width:16px;
+	height:30px;
+	position: absolute;
+	top:180px;
+	overflow: hidden;
+	cursor: pointer;
+	z-index: 1;
+}
+.content3_Top_pre img,.content3_Top_next img{
+	width:32px;
+	height:30px;	
+}
+.content3_Top_pre{
+	left:5px;
+}
+.content3_Top_next{
+	right:5px;
+}
+.content3_down{
+	width:1440px;
+	height:175px;
+	background:#f5f5f5;
+	margin:0 auto;
+overflow: hidden;
+}
+.cd_pic{
+	width:990px;
+	height:49px;
+	margin:0 auto;
+}
+.cd_pic li{
+	width:99px;
+	height:49px;
+	float:left;
+	margin-top:40px;
+	position: relative;
+}
+.cd_pic li span{
+	position: absolute;
+	bottom:-25px;
+	left:35px;
+}
+.cd_pic li:nth-of-type(1){
+	background:url(../img/icon_shape.jpg) no-repeat left top;
+}
+.cd_pic li:nth-of-type(1):hover{
+	background:url(../img/icon_shape.jpg) no-repeat left -49px;
+}
+.cd_pic li:nth-of-type(2){
+	background:url(../img/icon_shape.jpg) no-repeat -100px top;
+}
+.cd_pic li:nth-of-type(2):hover{
+	background:url(../img/icon_shape.jpg) no-repeat -100px -49px;
+}
+.cd_pic li:nth-of-type(3){
+	background:url(../img/icon_shape.jpg) no-repeat -200px top;
+}
+.cd_pic li:nth-of-type(3):hover{
+	background:url(../img/icon_shape.jpg) no-repeat -200px -49px;
+}
+.cd_pic li:nth-of-type(4){
+	background:url(../img/icon_shape.jpg) no-repeat -305px top;
+}
+.cd_pic li:nth-of-type(4):hover{
+	background:url(../img/icon_shape.jpg) no-repeat -305px -49px;
+}
+.cd_pic li:nth-of-type(5){
+	background:url(../img/icon_shape.jpg) no-repeat -390px top;
+}
+.cd_pic li:nth-of-type(5):hover{
+	background:url(../img/icon_shape.jpg) no-repeat -390px -49px;
+}
+.cd_pic li:nth-of-type(6){
+	background:url(../img/icon_shape.jpg) no-repeat -485px top;
+}
+.cd_pic li:nth-of-type(6):hover{
+	background:url(../img/icon_shape.jpg) no-repeat -485px -49px;
+}
+.cd_pic li:nth-of-type(7){
+	background:url(../img/icon_shape.jpg) no-repeat -580px top;
+}
+.cd_pic li:nth-of-type(7):hover{
+	background:url(../img/icon_shape.jpg) no-repeat -580px -49px;
+}
+.cd_pic li:nth-of-type(8){
+	background:url(../img/icon_shape.jpg) no-repeat -680px top;
+}
+.cd_pic li:nth-of-type(8):hover{
+	background:url(../img/icon_shape.jpg) no-repeat -680px -49px;
+}
+.cd_pic li:nth-of-type(9){
+	background:url(../img/icon_shape.jpg) no-repeat -780px top;
+}
+.cd_pic li:nth-of-type(9):hover{
+	background:url(../img/icon_shape.jpg) no-repeat -780px -49px;
+}
+.cd_pic li:nth-of-type(10){
+	background:url(../img/icon_shape.jpg) no-repeat -880px top;
+}
+.cd_pic li:nth-of-type(10):hover{
+	background:url(../img/icon_shape.jpg) no-repeat -880px -49px;
+}
  /*--content4--*/
-#content2{
-	height:1038px;
-	background:green;
+#content4{
+	height:1040px;
+	background:#fff;
+	overflow: hidden;
+	
 }  
+.content4_pic{
+	width:1440px;
+	height:986px;
+	margin:0 auto;
+}
+.content4_pic li:nth-of-type(1) a img,.content4_pic li:nth-of-type(2) a img{
+	margin:56px 20px 20px 0;
+	display: block;
+	float:left;
+}
+
+
+
+
  /*--content5--*/
 #content5{
 	height:644px;
