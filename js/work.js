@@ -109,9 +109,7 @@ $(function(){
 		$(".content1_Title li").eq(Num).addClass("active1").siblings().removeClass("active1");
 	},function(){
 		timer1=setInterval(Move,2000);
-	});
-	
-	
+	});	
 	$(".content3_Top_pre").click(function(){
 		$(".content3_Pic").animate({left:"+=260px"},"slow");
 		
@@ -120,19 +118,40 @@ $(function(){
 		$(".content3_Pic").animate({left:"-=260px"},"slow");	
 	});
 	
+	
+	
 	$(".content4_pic li").mouseenter(function(){				
-		index=$(this).index();
-		$(".content4_pic li").eq(index).animate({opacity:"0.5"},100,function(){
-		
-			$(".content4_pic li").eq(index).animate({opacity:"1"},100);			
+		var index=$(this).index();
+		console.log(index);
+		$(".content4_pic li").eq(index).animate({opacity:"0.5"},100,function(){		
+		$(".content4_pic li").eq(index).animate({opacity:"1"},100);			
 		});
 	});
-	$(".content4_pic li").mouseleave(function(){
-		$(".content4_pic li").animate({opacity:"1"},100);		
+//	$(".content4_pic li").mouseleave(function(){
+//		$(this).animate({opacity:"1"},100);		
+//	});
+//	
+	
+	
+	
+	
+	
+		var num=0;
+	function rollOne(){
+		num++;
+		console.log("aa")
+		if(num==2){num=0;};
+		$(".content6_Pic").find("li").eq(num).show().siblings().hide();
+		$(".content6_Num").find("li").eq(num).addClass("active2").siblings().removeClass("active2");
+	};	
+	var rollOnetimer=setInterval(rollOne,2000);
+	$(".content6_Num li").hover(function(){
+		clearInterval(rollOnetimer);
+		num=$(this).index();
+		$(".content6_Pic li").eq(num).show().siblings().hide();
+		$(".content6_Num li").eq(num).addClass("active2").siblings().removeClass("active2");	
+	},function(){
+		rollOnetimer=setInterval(rollOne,2000);
 	});
-	
-	
-	
-
 	
 })

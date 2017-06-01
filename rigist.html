@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		ul,li,ol{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		#box{
+			width:400px;
+			height:400px;
+			background:pink;
+			margin:0 auto;
+			position: relative;
+			padding:20px;
+		}
+		h1{
+			
+			font-weight: 100;
+			font-size:24px;		
+			line-height:48px;
+			
+		}
+		span{
+			display: inline-block;
+			position: absolute;
+			top:30px;
+			right:10px;	
+			font-size:12px;		
+		}
+		span a{
+			color:#F6827A;
+		}
+		#phone_num{
+			width:282px;
+			height:34px;
+			margin:0 auto;
+			border:1px solid #F00;
+		}
+		.phone_random{
+			width:138px;
+			height:34px;
+			border:none;
+			border:1px solid #F00;
+			float:left;
+			margin:10px auto;
+		}
+		p{
+			display: block;
+			font-style: inherit;
+			font-size:12px;
+			width:132px;
+			height:34px;			
+			line-height: 34px;
+			background:#F6827A;
+			color:#fff;
+			margin-left: 10px;
+			float:left;
+			text-align: center;
+			cursor: pointer;
+			margin:10px 5px;
+		}
+		.password,.password1{
+			width:282px;
+			height:34px;
+			margin:10px auto;
+		}
+		#btn{
+			cursor: pointer;
+		}
+	</style>
+	<body>
+		<form id="box">
+			<h1>欢迎注册</h1>
+			<span>已有账号　<a href="">请登录</a></span>
+			<input type="text" placeholder="请输入手机号" id="phone_num" name="phone_num">
+		<input type="text" placeholder="请输入六位验证码" class="phone_random" name="phone_random"><br/>
+			<p>免费获取六位验证码</p><br/>
+			<input type="password" placeholder="请输入6-20位大小写字母 数字及'_'" class="password" name="password"><br/>
+			<input type="password" placeholder="请再次输入密码" class="password1" name="password1"><br/>
+			<input type="checkbox" checked="checked" ><a href="">已阅读并同意《钻石小鸟用户协议》</a><br/>
+			<input type="button" value="注册" id="btn">
+		</from>
+		<script type="text/javascript">
+			var phone_Num=document.getElementById("phone_num");
+			var oBtn=document.getElementById("btn");
+			var oPhone_Random=document.getElementsByClassName("phone_random")[0];
+			var oP=document.getElementsByTagName("p")[0];
+			var apassword=document.getElementsByClassName("password")[0];	
+			var apassword1=document.getElementsByClassName("password1")[0];				
+			phone_Num.onblur=function(){ 
+   		 	var phone = document.getElementById("phone_num").value;
+   			if(!(/^1[34578]\d{9}$/.test(phone))){ 
+       	 alert("手机号码有误，请重填");  
+       	 return; 
+    		};
+		}
+		oP.onclick=function(){		
+			function rancode(){
+			var str="";
+			for(var i=0;i<6;i++){
+				str+=Math.floor(Math.random()*10);				
+			}
+			return str;			
+			}			
+			oPhone_Random.value=rancode();			
+		};		
+		apassword.onblur=function(){	
+			var opassword= apassword.value;	
+			var reg= /\w{6,20}/;
+			if(reg.test(opassword)){
+		}else{
+				alert("密码格式不正确，请重新输入密码");	
+				return;
+			}
+		};
+		apassword1.onblur=function(){
+			var opassword1=apassword1.value; 
+			if(apassword.value!=opassword1){
+				alert("密码格式与上面不对，请重新输入密码");
+				return;
+			}
+		};			
+			$(function(){
+				var aInput=$("#box").find("input:not(:last)");
+				$("#btn").click(function(){
+					if(aInput.eq(0).val().length==0){
+						alert("请正确填写注册!");
+					return;
+					};			
+	$.post("http://localhost/newWork/php/index.php",{"phone_num":aInput.eq(0).val(),"phone_random":aInput.eq(1).val(),"password":aInput.eq(2).val(),"password1":aInput.eq(3).val()},function(data){		
+					if(data==1){
+						alert("注册成功");
+					}else{
+						alert("用户名被占用,请重新注册!");
+					}
+				})
+			})
+		})
+		
+		
+		
+		
+		</script>
+	</body>
+</html>
