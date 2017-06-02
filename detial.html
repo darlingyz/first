@@ -2,8 +2,10 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>商品详情页</title>
+		<title>index</title>
 		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
 		<style type="text/css">
 			*{
 				margin:0;
@@ -188,14 +190,14 @@
 				margin:20px auto;
 				position: relative;
 			}
-			.boy,.girls{
+			.boy{
 				width:142px;
 				height:30px;
 				margin-right:20px;
 				text-align: center;
 				cursor: pointer;
 			}
-			.nan,.nu{
+			.nan{
 				float:left;
 			}
 			.cun i{
@@ -209,7 +211,6 @@
 			.cun b{
 				margin:8px 0 0 4px;
 				position: absolute;
-				/*line-height: 30px;*/
 				width:40px;
 				height:20px;
 				border-right:1px solid #666;
@@ -227,14 +228,10 @@
 				cursor: pointer;
 			}
 			.nan span{
-				left:155px;
-				
+				left:155px;				
 			}
-			.nu span{
-				right:180px;
-				
-			}
-			.boy_down,.girls_down{
+			
+			.boy_down{
 				width:143px;
 				height:80px;
 				border:1px solid #999;
@@ -329,92 +326,11 @@
 								<li>20</li>
 							</ul>
 						</div>
-						<div class="nu"><b>女</b>
-						<input type="text" value="9" class="girls"><span></span>
-							<ul class="girls_down">
-								<li>9</li>
-								<li>10</li>
-								<li>11</li>
-								<li>12</li>
-								<li>13</li>
-								<li>14</li>
-								<li>15</li>
-								<li>16</li>
-							</ul>
-						</div>
-					</div>					
+											
 				</div>
-				<input type="submit" value="加入购物车" class="btn">
-			</div>
-			
+	<a href="shoopingcar.html"><input type="submit" value="加入购物车" class="btn"></a>
+			</div>			
 		</div>
-		<script type="text/javascript">
-			var oMidImg=document.getElementsByClassName("MidImg")[0];
-			var oBox_Left=document.getElementById("box_Left");
-			var oSpan1=document.getElementsByClassName("span1")[0];
-			var oBigImg=document.getElementsByClassName("BigImg")[0];
-			var oImg=oBigImg.getElementsByTagName("img")[0];
-			var oBoy=document.getElementsByClassName("boy")[0];
-			var oGirls=document.getElementsByClassName("girls")[0];
-			var oBoy_down=document.getElementsByClassName("boy_down")[0];
-			var oLi=oBoy_down.getElementsByTagName("li");			
-			var oGirls_down=document.getElementsByClassName("girls_down")[0];
-			var aLi=oGirls_down.getElementsByTagName("li");
-			oMidImg.onmousemove=function(e){
-				var evt=e||event;
-				var evt= e||event;
-				var x=evt.pageX-oBox_Left.offsetLeft-oSpan1.offsetWidth/2;
-				var y=evt.pageY-oBox_Left.offsetTop-oSpan1.offsetHeight/2;
-				oSpan1.style.display="block";
-				oBigImg.style.display="block";
-				if(x<=0){
-					x=0;
-				}if(x>=oMidImg.offsetWidth-oSpan1.offsetWidth){
-					x=oMidImg.offsetWidth-oSpan1.offsetWidth;
-				}if(y<=0){
-					y=0;
-				}if(y>=oMidImg.offsetHeight-oSpan1.offsetHeight){
-					y=oMidImg.offsetHeight-oSpan1.offsetHeight;
-				}
-				oSpan1.style.left=x+"px";
-				oSpan1.style.top=y+"px";
-				oImg.style.left=-oImg.offsetWidth/oMidImg.offsetWidth*x+"px";
-				oImg.style.top=-oImg.offsetHeight/oMidImg.offsetHeight*y+"px";
-			}
-			oMidImg.onmouseleave = function(){
-				oSpan1.style.display = "none";
-				oBigImg.style.display = "none";
-			}
-			$(".btn_prev").click(function(){
-			$(".small_Pic").animate({left:"+=248px"},"slow");
-			/*if(){
-				$(".small_Pic").stop();
-				
-				
-				
-			}*/
-		});
-		$(".btn_next").click(function(){			
-		$(".small_Pic").animate({left:"-=248px"},"slow");	
-		});	
-		oBoy.onmouseover=function(){
-			oBoy_down.style.display="block";			
-				for(var i=0;i<oLi.length;i++){
-					oLi[i].onclick=function(){
-					oBoy.value=this.innerHTML;
-					oBoy_down.style.display= "none";					
-				}
-			}			
-		}
-		oGirls.onmouseover=function(){
-			oGirls_down.style.display="block";			
-				for(var i=0;i<aLi.length;i++){
-					aLi[i].onclick=function(){
-					oGirls.value=this.innerHTML;
-					oGirls_down.style.display= "none";					
-				}
-			}			
-		}		
-		</script>
+		<script src="js/detial.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

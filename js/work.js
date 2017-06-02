@@ -92,6 +92,27 @@ $(function(){
 		$(".last_img").hide();
 	});
 	
+	function roll1(){
+			$(".content_Left_Img1 li:first").animate({left:"-=352px"},"linear",function(){
+				$(this).remove().clone(true).appendTo(".content_Left_Img1").fadeIn("slow");	
+			});		
+		}
+		var startRoll=setInterval(roll1,2000);
+	
+	$(".content_Right").mouseenter(function(){
+		
+		$(".content_Right").animate({opacity:"0.5"},100,function(){
+			$(".content_Right").animate({opacity:"1"},100)
+		})		
+	});
+	$(".content_Right").mouseleave(function(){
+		$(".content_Right").animate({opacity:"1"},100);
+	});
+	
+	
+	
+	
+	
 //banner自动轮播	
 	var Num = 0;
 	function Move(){	
@@ -109,7 +130,8 @@ $(function(){
 		$(".content1_Title li").eq(Num).addClass("active1").siblings().removeClass("active1");
 	},function(){
 		timer1=setInterval(Move,2000);
-	});	
+	});		
+	
 	$(".content3_Top_pre").click(function(){
 		$(".content3_Pic").animate({left:"+=260px"},"slow");
 		
@@ -118,28 +140,33 @@ $(function(){
 		$(".content3_Pic").animate({left:"-=260px"},"slow");	
 	});
 	
+	$(".content3_Pic li").mouseenter(function(){
+		var index=$(this).index();
+
+		$(".content3_Pic li").eq(index).animate({top:"-8px"},"linear");
+	})
+	$(".content3_Pic li").mouseleave(function(){
+		var index=$(this).index();
+	
+		$(".content3_Pic li").eq(index).animate({top:"0"},"linear");
+	})
+	
+	
+	
 	
 	
 	$(".content4_pic li").mouseenter(function(){				
 		var index=$(this).index();
-		console.log(index);
+		
 		$(".content4_pic li").eq(index).animate({opacity:"0.5"},100,function(){		
 		$(".content4_pic li").eq(index).animate({opacity:"1"},100);			
-		});
+		})
 	});
-//	$(".content4_pic li").mouseleave(function(){
-//		$(this).animate({opacity:"1"},100);		
-//	});
-//	
-	
-	
-	
 	
 	
 		var num=0;
 	function rollOne(){
 		num++;
-		console.log("aa")
 		if(num==2){num=0;};
 		$(".content6_Pic").find("li").eq(num).show().siblings().hide();
 		$(".content6_Num").find("li").eq(num).addClass("active2").siblings().removeClass("active2");
@@ -153,5 +180,39 @@ $(function(){
 	},function(){
 		rollOnetimer=setInterval(rollOne,2000);
 	});
+			
+
+
+
+
+
+})	
+	var data={"10001":{
+			
+				"imgUrl":"img/1.jpg",
+				"title":"纯境",				
+				"size":"14",
+				"price":"￥2330",
+				"id":"10001",
+				}
+	};
+		var amycarbox_list=document.getElementsByClassName("mycarbox_list")[0];
+		var amycar_num=document.getElementsByClassName("mycar_num")[0];
+			var strCookie = getCookie("cart");
+			var objCookie = JSON.parse(strCookie);		
+			var str="";
+			for(var attr in objCookie){				
+				str+="<li><img src='"+data[attr].imgUrl+"'><em>"+data[attr].title+"</em><em>"+data[attr].size+"</em><em>"+data[attr].price+"</em><em id='delete'>删除</em></li>"
+			};				
+		amycarbox_list.innerHTML=str;		
+	var oDelete=document.getElementById("delete");	
+	oDelete.onclick=function(){
+		amycarbox_list.remove();
+	};	
+	amycar_num.innerHTML=objCookie[attr];
+
 	
-})
+	
+	
+	
+	
